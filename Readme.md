@@ -1,4 +1,3 @@
-
 <div align="center">
 
 # ☕ Java DSA – NMIMS
@@ -7,7 +6,7 @@
 ![Status](https://img.shields.io/badge/Status-Active%20Learning-success?style=for-the-badge)
 ![Students](https://img.shields.io/badge/NMIMS-Engineering%20Students-blue?style=for-the-badge)
 ![Batch](https://img.shields.io/badge/Batch-CS-red?style=for-the-badge)
-![Progress](https://img.shields.io/badge/Day%201-Completed-brightgreen?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Day%202-Completed-brightgreen?style=for-the-badge)
 ![Training](https://img.shields.io/badge/Training-In%20Progress-success?style=for-the-badge)
 
 ### 🚀 *Master Data Structures & Algorithms with Java!*
@@ -15,7 +14,7 @@
 **Welcome to your comprehensive DSA learning journey!**  
 Everything you need to ace coding interviews and become a problem-solving expert.
 
-[📚 Start Learning](#-topics-covered) • [💻 Problems Solved](#-problems-covered---day-1) • [🎯 What's Next](#-whats-coming-next)
+[📚 Start Learning](#-topics-covered) • [💻 Problems Solved](#-problems-covered---days-1--2) • [🎯 What's Next](#-whats-coming-next)
 
 ---
 
@@ -28,17 +27,17 @@ Everything you need to ace coding interviews and become a problem-solving expert
 <td width="33%" align="center">
 
 ### 📦 **Collections**
-Arrays, ArrayList, Sets, Maps
+Arrays, ArrayList, Sets, Maps, Queues
 
 [Jump to Topics →](#-collections-framework)
 
 </td>
 <td width="33%" align="center">
 
-### 🔢 **Arrays**
-Manipulation & Problem Solving
+### 🔢 **Advanced Topics**
+Comparators, Sorting, Problem Solving
 
-[View Algorithms →](#-arrays--arraylist)
+[View Algorithms →](#-comparators--sorting)
 
 </td>
 <td width="33%" align="center">
@@ -46,7 +45,7 @@ Manipulation & Problem Solving
 ### 🏆 **Problems**
 Practice Questions
 
-[See Problems →](#-problems-covered---day-1)
+[See Problems →](#-problems-covered---days-1--2)
 
 </td>
 </tr>
@@ -58,7 +57,7 @@ Practice Questions
 
 ```
 Day 1 - Collections & Arrays:
-████████████████████████████████ 100%
+████████████████████████████████ 100% ✅
 
 ✅ Arrays - Basics & Manipulation
 ✅ ArrayList - Dynamic Arrays
@@ -68,15 +67,25 @@ Day 1 - Collections & Arrays:
 ✅ Duplicate Removal Problem
 ✅ Practice Problems
 
-Day 2 - Collections Advanced & Array Algorithms:
-🔜 IN PROGRESS
+Day 2 - Collections Advanced & Queues:
+████████████████████████████████ 100% ✅
 
 ✅ Map Interface (HashMap, TreeMap, LinkedHashMap)
-✅ Queue Interface (PriorityQueue, Deque)
+✅ Queue Interface (ArrayDeque, PriorityQueue)
 ✅ Collections Utility Class
+✅ Comparators & Custom Sorting
+✅ Iterator & Iteration Methods
+✅ Real-world Problem Solving
+✅ Practice Problems
+
+Day 3 - Algorithms & Advanced Problem Solving:
+🔜 COMING NEXT
+
 ⏳ Sliding Window Technique
 ⏳ Prefix Sum Algorithm
-⏳ Array Problem Solving
+⏳ Two Pointer Approach
+⏳ Binary Search & Variations
+⏳ Sorting Algorithms Deep Dive
 ```
 
 ---
@@ -92,9 +101,11 @@ graph LR
     E --> F[🗺️ Map]
     F --> G[📬 Queue]
     G --> H[🛠️ Collections Utils]
-    H --> I[🪟 Sliding Window]
-    I --> J[➕ Prefix Sum]
-    J --> K[🔥 Problem Solving]
+    H --> I[⚙️ Comparators]
+    I --> J[📊 Sorting]
+    J --> K[🪟 Sliding Window]
+    K --> L[➕ Prefix Sum]
+    L --> M[🔥 Problem Solving]
     
     style A fill:#90EE90
     style B fill:#90EE90
@@ -104,9 +115,11 @@ graph LR
     style F fill:#FFD700
     style G fill:#FFD700
     style H fill:#FFD700
-    style I fill:#87CEEB
-    style J fill:#87CEEB
-    style K fill:#FF6B6B
+    style I fill:#FFD700
+    style J fill:#FFD700
+    style K fill:#87CEEB
+    style L fill:#87CEEB
+    style M fill:#FF6B6B
 ```
 
 ---
@@ -588,25 +601,6 @@ public class RemoveDuplicatesBruteForce {
 }
 ```
 
-**Dry Run Example:**
-
-```
-Initial: [1, 4, 1, 1, 1, 1, 1, 4, 3, 133, 345, 13, 13]
-         
-i=0 (val=1): j=2 finds duplicate 1 → remove
-             [1, 4, 1, 1, 1, 1, 4, 3, 133, 345, 13, 13]
-             j=2 finds duplicate 1 → remove
-             [1, 4, 1, 1, 1, 4, 3, 133, 345, 13, 13]
-             ... continue until no more 1s at end
-
-i=1 (val=4): j=6 finds duplicate 4 → remove
-             [1, 4, 1, 1, 1, 3, 133, 345, 13, 13]
-
-... continue for all elements
-
-Final: [1, 4, 3, 133, 345, 13]
-```
-
 **Complexity Analysis:**
 - ⏱️ **Time:** O(n²) - nested loops
 - 💾 **Space:** O(1) - no extra space
@@ -615,7 +609,7 @@ Final: [1, 4, 3, 133, 345, 13]
 
 ---
 
-### ✅ Approach 2: Using HashSet (O(n))
+### ✅ Approach 2: Using HashSet (O(n)) - RECOMMENDED
 
 ```java
 import java.util.HashSet;
@@ -653,10 +647,10 @@ public class RemoveDuplicatesHashSet {
 
 ---
 
-### ⚡ Approach 3: Using HashSet Constructor
+### ⚡ Approach 3: Using LinkedHashSet (Preserves Order)
 
 ```java
-public class RemoveDuplicatesConstructor {
+public class RemoveDuplicatesLinkedHashSet {
     public static void main(String[] args) {
         ArrayList<Integer> arr = new ArrayList<>();
         int[] input = {1, 4, 1, 1, 1, 1, 1, 4, 3, 133, 345, 13, 13};
@@ -665,11 +659,11 @@ public class RemoveDuplicatesConstructor {
             arr.add(val);
         }
         
-        // Convert ArrayList to HashSet and back
-        ArrayList<Integer> result = new ArrayList<>(new HashSet<>(arr));
+        // Convert ArrayList to LinkedHashSet and back
+        ArrayList<Integer> result = new ArrayList<>(new LinkedHashSet<>(arr));
         
         System.out.println("Result: " + result);
-        // Output: [1, 4, 3, 133, 345, 13] (order may vary)
+        // Output: [1, 4, 3, 133, 345, 13] (order preserved)
     }
 }
 ```
@@ -677,72 +671,519 @@ public class RemoveDuplicatesConstructor {
 **Complexity Analysis:**
 - ⏱️ **Time:** O(n)
 - 💾 **Space:** O(n)
-- ✅ **Pros:** Most concise
-- ❌ **Cons:** Order not guaranteed
+- ✅ **Pros:** Concise, preserves order
+- ❌ **Cons:** Extra space needed
+
+</details>
 
 ---
 
-### 🎯 Complete Solution Comparison
+<details open>
+<summary><h3>🗺️ Map Interface - Key-Value Mapping</h3></summary>
+
+> **Map** is a collection of key-value pairs where each key is unique.
+
+### 1️⃣ **HashMap** - Unordered Key-Value Pairs
 
 ```java
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
-public class RemoveDuplicates {
-    
-    // Method 1: Brute Force (O(n²) time, O(1) space)
-    public static ArrayList<Integer> removeDuplicatesBruteForce(int[] input) {
-        ArrayList<Integer> arr = new ArrayList<>();
-        for (int val : input) arr.add(val);
-        
-        for (int i = 0; i < arr.size(); i++) {
-            for (int j = i + 1; j < arr.size(); j++) {
-                if (arr.get(i).equals(arr.get(j))) {
-                    arr.remove(j);
-                    j--;
-                }
-            }
-        }
-        return arr;
-    }
-    
-    // Method 2: HashSet (O(n) time, O(n) space) - RECOMMENDED
-    public static ArrayList<Integer> removeDuplicatesHashSet(int[] input) {
-        ArrayList<Integer> arr = new ArrayList<>();
-        HashSet<Integer> seen = new HashSet<>();
-        
-        for (int val : input) arr.add(val);
-        
-        ArrayList<Integer> result = new ArrayList<>();
-        for (int val : arr) {
-            if (!seen.contains(val)) {
-                seen.add(val);
-                result.add(val);
-            }
-        }
-        return result;
-    }
-    
-    // Method 3: Using LinkedHashSet to preserve order
-    public static ArrayList<Integer> removeDuplicatesLinkedHashSet(int[] input) {
-        ArrayList<Integer> arr = new ArrayList<>();
-        for (int val : input) arr.add(val);
-        
-        return new ArrayList<>(new LinkedHashSet<>(arr));
-    }
-    
+public class HashMapDemo {
     public static void main(String[] args) {
-        int[] input = {1, 4, 1, 1, 1, 1, 1, 4, 3, 133, 345, 13, 13};
+        Map<String, Integer> map = new HashMap<>();
         
-        System.out.println("Original: " + Arrays.toString(input));
-        System.out.println("Brute Force: " + removeDuplicatesBruteForce(input));
-        System.out.println("HashSet: " + removeDuplicatesHashSet(input));
-        System.out.println("LinkedHashSet: " + removeDuplicatesLinkedHashSet(input));
+        // PUT - Insert key-value pair | O(1) average
+        map.put("Shivam", 99);
+        map.put("Sejal", 120);
+        map.put("Tithee", 24);
+        System.out.println("After put: " + map);
+        // Output: {Sejal=120, Shivam=99, Tithee=24}
         
-        // Output:
-        // Original: [1, 4, 1, 1, 1, 1, 1, 4, 3, 133, 345, 13, 13]
-        // Brute Force: [1, 4, 3, 133, 345, 13]
-        // HashSet: [1, 4, 3, 133, 345, 13]
-        // LinkedHashSet: [1, 4, 3, 133, 345, 13]
+        // PUT IF ABSENT - Insert only if key doesn't exist | O(1)
+        map.putIfAbsent("Tithee", 90);  // Won't update (key exists)
+        map.putIfAbsent("Mohini", 85);  // Will insert (key doesn't exist)
+        System.out.println("After putIfAbsent: " + map);
+        
+        // GET - Retrieve value by key | O(1) average
+        System.out.println("Shivam's score: " + map.get("Shivam"));  // 99
+        System.out.println("Unknown: " + map.get("Unknown"));        // null
+        
+        // CONTAINS KEY - Check if key exists | O(1) average
+        System.out.println("Contains Shivam: " + map.containsKey("Shivam"));  // true
+        System.out.println("Contains Mohini: " + map.containsKey("Mohini"));  // false
+        
+        // CONTAINS VALUE - Check if value exists | O(n)
+        System.out.println("Contains 99: " + map.containsValue(99));    // true
+        System.out.println("Contains 1200: " + map.containsValue(1200)); // false
+        
+        // REMOVE - Remove key-value pair | O(1) average
+        map.remove("Tithee");
+        System.out.println("After remove: " + map);
+        
+        // SIZE - Get number of entries | O(1)
+        System.out.println("Size: " + map.size());
+        
+        // ITERATE - Different ways
+        System.out.println("\n--- Iteration Methods ---");
+        
+        // 1. Entry Set (Most efficient)
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+        
+        // 2. Key Set
+        for (String name : map.keySet()) {
+            System.out.println(name);
+        }
+        
+        // 3. Values
+        for (Integer score : map.values()) {
+            System.out.println(score);
+        }
+    }
+}
+```
+
+**Characteristics:**
+- ✅ No duplicate keys
+- ✅ Unordered
+- ✅ Null keys and values allowed
+- ✅ O(1) average operations
+- ✅ Fast lookups
+
+---
+
+### 2️⃣ **LinkedHashMap** - Ordered Key-Value Pairs
+
+```java
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class LinkedHashMapDemo {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new LinkedHashMap<>();
+        
+        map.put("Java", 95);
+        map.put("Python", 88);
+        map.put("C++", 92);
+        
+        System.out.println(map);
+        // Output: {Java=95, Python=88, C++=92} (insertion order preserved)
+        
+        // Iteration preserves order
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+    }
+}
+```
+
+**Characteristics:**
+- ✅ **Maintains insertion order**
+- ✅ Similar operations to HashMap
+- ✅ Slightly slower than HashMap
+- ✅ O(1) average operations
+
+---
+
+### 3️⃣ **TreeMap** - Sorted Key-Value Pairs
+
+```java
+import java.util.TreeMap;
+import java.util.Map;
+
+public class TreeMapDemo {
+    public static void main(String[] args) {
+        Map<Integer, String> map = new TreeMap<>();
+        
+        map.put(30, "Thirty");
+        map.put(10, "Ten");
+        map.put(20, "Twenty");
+        
+        System.out.println(map);
+        // Output: {10=Ten, 20=Twenty, 30=Thirty} (sorted by key)
+        
+        // Additional methods
+        System.out.println("First Key: " + ((TreeMap<Integer, String>) map).firstKey());
+        System.out.println("Last Key: " + ((TreeMap<Integer, String>) map).lastKey());
+    }
+}
+```
+
+**Characteristics:**
+- ✅ **Sorted by keys**
+- ✅ O(log n) operations
+- ✅ Slower than HashMap
+- ✅ Can use custom comparator
+
+---
+
+### 🎯 Real-World Problem: Count Elements Appearing > n/3 Times
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MajorityElement {
+    public static void main(String[] args) {
+        int[] arr = {1, 4, 1, 4, 2, 1, 7, 9, 1};
+        int n = arr.length;
+        
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> result = new ArrayList<>();
+        
+        // Count frequency of each element
+        for (int val : arr) {
+            if (map.containsKey(val)) {
+                map.put(val, map.get(val) + 1);
+            } else {
+                map.put(val, 1);
+            }
+        }
+        
+        System.out.println("Frequency map: " + map);
+        
+        // Find elements with frequency > n/3
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > n / 3) {
+                result.add(entry.getKey());
+            }
+        }
+        
+        System.out.println("Elements appearing > n/3 times: " + result);
+        // Output: [1, 4] (both appear 4 times, n/3 = 3)
+    }
+}
+```
+
+---
+
+### 📊 Map Comparison Table
+
+| Feature | HashMap | LinkedHashMap | TreeMap |
+|:--------|:-------:|:-------------:|:-------:|
+| **Order** | ❌ No | ✅ Insertion | ✅ Sorted |
+| **Speed** | Fastest | Fast | Slower |
+| **Time Complexity** | O(1) | O(1) | O(log n) |
+| **Null Keys** | ✅ 1 allowed | ✅ 1 allowed | ❌ No |
+| **Null Values** | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Use Case** | General | Need order | Need sorted |
+
+</details>
+
+---
+
+<details open>
+<summary><h3>📬 Queue Interface - FIFO & LIFO</h3></summary>
+
+> **Queue** is a collection for holding elements prior to processing, typically following FIFO (First-In-First-Out) principle.
+
+### 1️⃣ **ArrayDeque** - Double-Ended Queue
+
+```java
+import java.util.ArrayDeque;
+
+public class ArrayDequeDemo {
+    public static void main(String[] args) {
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        
+        // OFFER - Add elements
+        deque.offer(43);          // Add to end
+        deque.offerFirst(1);      // Add to front
+        deque.offerLast(99);      // Add to end
+        System.out.println("After offers: " + deque);
+        // Output: [1, 43, 99]
+        
+        // POLL - Remove and return elements
+        int removed1 = deque.poll();        // Remove from front
+        int removed2 = deque.pollFirst();   // Remove from front
+        int removed3 = deque.pollLast();    // Remove from end
+        System.out.println("After polls: " + deque);
+        
+        // Re-populate for peek demonstration
+        deque.offer(10);
+        deque.offer(20);
+        deque.offer(30);
+        
+        // PEEK - View elements without removing
+        System.out.println("Peek: " + deque.peek());        // 10 (front)
+        System.out.println("Peek First: " + deque.peekFirst()); // 10
+        System.out.println("Peek Last: " + deque.peekLast());   // 30
+        System.out.println("After peeks: " + deque);        // No change
+        
+        // LIFO (Stack) operations
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println("Stack: " + stack);
+        System.out.println("Pop: " + stack.pop());  // 3
+    }
+}
+```
+
+**Methods:**
+- `offer(E)` / `offerLast(E)` - Add to end
+- `offerFirst(E)` - Add to front
+- `poll()` / `pollFirst()` - Remove from front
+- `pollLast()` - Remove from end
+- `peek()` / `peekFirst()` - View front without removing
+- `peekLast()` - View end without removing
+- `push(E)` - Add to front (stack-like)
+- `pop()` - Remove from front (stack-like)
+
+**Characteristics:**
+- ✅ Double-ended operations
+- ✅ O(1) for all operations
+- ✅ Can be used as both Queue (FIFO) and Stack (LIFO)
+- ✅ More efficient than LinkedList for queue operations
+
+---
+
+### 2️⃣ **PriorityQueue** - Min/Max Heap
+
+```java
+import java.util.PriorityQueue;
+import java.util.Comparator;
+
+public class PriorityQueueDemo {
+    public static void main(String[] args) {
+        // Min Heap (Default)
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        
+        minHeap.add(43);
+        minHeap.add(12);
+        minHeap.add(7);
+        minHeap.add(25);
+        
+        System.out.println("Min Heap: " + minHeap);
+        
+        // Poll removes minimum
+        while (!minHeap.isEmpty()) {
+            System.out.print(minHeap.poll() + " ");  // 7 12 25 43
+        }
+        
+        System.out.println("\n");
+        
+        // Max Heap (using reverse order)
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        
+        maxHeap.add(43);
+        maxHeap.add(12);
+        maxHeap.add(7);
+        maxHeap.add(25);
+        
+        System.out.println("Max Heap: " + maxHeap);
+        
+        // Poll removes maximum
+        while (!maxHeap.isEmpty()) {
+            System.out.print(maxHeap.poll() + " ");  // 43 25 12 7
+        }
+    }
+}
+```
+
+**Characteristics:**
+- ✅ Auto-sorted heap structure
+- ✅ O(log n) add/remove
+- ✅ O(n) peek
+- ✅ Min heap by default, Max heap with Comparator.reverseOrder()
+
+---
+
+### 🎯 Problem: Find Kth Largest Element
+
+```java
+import java.util.PriorityQueue;
+
+public class KthLargestElement {
+    public static void main(String[] args) {
+        int[] arr = {5, 1, 10, 3, 12, 2, 8};
+        int k = 3;
+        
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        
+        for (int val : arr) {
+            minHeap.offer(val);
+            
+            // Keep only k largest elements
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+        
+        System.out.println("3rd Largest Element: " + minHeap.peek());
+        // Output: 8
+        
+        System.out.println("All k largest elements: " + minHeap);
+        // Output: [8, 5, 10]
+    }
+}
+```
+
+---
+
+### 🎯 Problem: Find Kth Smallest Element
+
+```java
+import java.util.PriorityQueue;
+import java.util.Comparator;
+
+public class KthSmallestElement {
+    public static void main(String[] args) {
+        int[] arr = {5, 1, 10, 3, 12, 2, 8};
+        int k = 3;
+        
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        
+        for (int val : arr) {
+            maxHeap.offer(val);
+            
+            // Keep only k smallest elements
+            if (maxHeap.size() > k) {
+                maxHeap.poll();
+            }
+        }
+        
+        System.out.println("3rd Smallest Element: " + maxHeap.peek());
+        // Output: 3
+        
+        System.out.println("All k smallest elements: " + maxHeap);
+        // Output: [3, 1, 2]
+    }
+}
+```
+
+---
+
+### 📊 Queue Comparison
+
+| Feature | ArrayDeque | PriorityQueue |
+|:--------|:----------:|:-------------:|
+| **Order** | Insertion | Priority (Heap) |
+| **Add/Remove** | O(1) | O(log n) |
+| **Peek** | O(1) | O(n) |
+| **Use Case** | General queue/stack | Priority-based |
+| **FIFO/LIFO** | Both | Neither |
+
+</details>
+
+---
+
+<details open>
+<summary><h3>🔄 Iterator & Iteration Methods</h3></summary>
+
+> **Iterator** provides a way to sequentially access elements in a collection without exposing its underlying structure.
+
+### 1️⃣ **Basic Iterator Usage**
+
+```java
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class IteratorDemo {
+    public static void main(String[] args) {
+        HashSet<Integer> set = new HashSet<>();
+        int[] arr = {42, 678, 2, 4};
+        
+        for (int val : arr) {
+            set.add(val);
+        }
+        
+        // Create iterator
+        Iterator<Integer> it = set.iterator();
+        
+        // Traverse using iterator
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+        // Output: 42, 678, 2, 4 (in some order)
+    }
+}
+```
+
+**Iterator Methods:**
+- `hasNext()` - Returns true if more elements exist
+- `next()` - Returns the next element
+- `remove()` - Removes the current element (optional)
+
+---
+
+### 2️⃣ **Iteration Methods Comparison**
+
+```java
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class IterationMethods {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        
+        // Method 1: Traditional for loop
+        System.out.println("Traditional for loop:");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+        
+        // Method 2: Enhanced for loop
+        System.out.println("\nEnhanced for loop:");
+        for (Integer val : list) {
+            System.out.println(val);
+        }
+        
+        // Method 3: Iterator
+        System.out.println("\nIterator:");
+        Iterator<Integer> it = list.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+        
+        // Method 4: forEach method (Java 8+)
+        System.out.println("\nforEach method:");
+        list.forEach(val -> System.out.println(val));
+        
+        // Method 5: streams (Java 8+)
+        System.out.println("\nStream:");
+        list.stream().forEach(System.out::println);
+    }
+}
+```
+
+---
+
+### 🎯 Problem: Detect Duplicates Using Iterator & HashSet
+
+```java
+import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ContainsDuplicates {
+    public static void main(String[] args) {
+        HashSet<Integer> set = new HashSet<>();
+        List<Integer> arrList = new ArrayList<>();
+        int[] arr = {1, 12, 54, 1, 99, 1, 12};
+        boolean hasDuplicates = false;
+        
+        for (int val : arr) {
+            if (set.contains(val)) {
+                hasDuplicates = true;
+                arrList.add(val);  // Store duplicates
+            }
+            set.add(val);
+        }
+        
+        System.out.println("Has Duplicates: " + hasDuplicates);
+        System.out.println("Duplicate Elements: " + arrList);
+        // Output: Has Duplicates: true
+        //         Duplicate Elements: [1, 1, 12]
     }
 }
 ```
@@ -751,7 +1192,330 @@ public class RemoveDuplicates {
 
 ---
 
-## ✅ Problems Covered - Day 1
+<details open>
+<summary><h3>🛠️ Collections Utility Class</h3></summary>
+
+> **Collections** class provides static utility methods for common operations on collections like sorting, searching, and modifying.
+
+### Key Methods
+
+```java
+import java.util.*;
+
+public class CollectionsDemo {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(Arrays.asList(5, 2, 8, 1, 9));
+        
+        // SORT - Sort in natural order | O(n log n)
+        Collections.sort(list);
+        System.out.println("Sorted: " + list);
+        // Output: [1, 2, 5, 8, 9]
+        
+        // REVERSE - Reverse the list | O(n)
+        Collections.reverse(list);
+        System.out.println("Reversed: " + list);
+        // Output: [9, 8, 5, 2, 1]
+        
+        // SHUFFLE - Randomize order | O(n)
+        Collections.shuffle(list);
+        System.out.println("Shuffled: " + list);
+        
+        // MIN - Find minimum element | O(n)
+        int minimum = Collections.min(list);
+        System.out.println("Min: " + minimum);
+        
+        // MAX - Find maximum element | O(n)
+        int maximum = Collections.max(list);
+        System.out.println("Max: " + maximum);
+        
+        // FREQUENCY - Count occurrences | O(n)
+        List<Integer> list2 = new ArrayList<>(Arrays.asList(1, 2, 2, 3, 2, 4, 2));
+        int count = Collections.frequency(list2, 2);
+        System.out.println("Frequency of 2: " + count);
+        // Output: 4
+        
+        // BINARY SEARCH - Search in sorted list | O(log n)
+        List<Integer> sortedList = new ArrayList<>(Arrays.asList(1, 3, 5, 7, 9));
+        int index = Collections.binarySearch(sortedList, 5);
+        System.out.println("Index of 5: " + index);
+        // Output: 2
+        
+        // FILL - Fill entire list with value | O(n)
+        List<Integer> list3 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        Collections.fill(list3, 10);
+        System.out.println("After fill: " + list3);
+        // Output: [10, 10, 10, 10, 10]
+        
+        // COPY - Copy elements from source to destination | O(n)
+        List<Integer> source = new ArrayList<>(Arrays.asList(1, 2, 3));
+        List<Integer> dest = new ArrayList<>(Arrays.asList(0, 0, 0));
+        Collections.copy(dest, source);
+        System.out.println("After copy: " + dest);
+        // Output: [1, 2, 3]
+        
+        // ROTATE - Rotate list by distance | O(n)
+        List<Integer> list4 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        Collections.rotate(list4, 2);
+        System.out.println("After rotate by 2: " + list4);
+        // Output: [4, 5, 1, 2, 3]
+    }
+}
+```
+
+**Time Complexities:**
+| Method | Time |
+|:-------|:----:|
+| sort() | O(n log n) |
+| reverse() | O(n) |
+| shuffle() | O(n) |
+| min() / max() | O(n) |
+| frequency() | O(n) |
+| binarySearch() | O(log n) |
+| fill() | O(n) |
+| copy() | O(n) |
+| rotate() | O(n) |
+
+</details>
+
+---
+
+<details open>
+<summary><h3>⚙️ Comparators & Sorting</h3></summary>
+
+> **Comparator** is a custom way to define how objects should be sorted. It provides flexibility beyond natural ordering.
+
+### 1️⃣ **Comparator Basics**
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Arrays;
+
+public class ComparatorDemo {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(Arrays.asList(43, 11, 56, 99, 20));
+        
+        // ANONYMOUS INNER CLASS - Custom comparator
+        Comparator<Integer> cmp = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer a, Integer b) {
+                // Sort by last digit
+                if (a % 10 > b % 10)
+                    return 1;
+                else if (a % 10 < b % 10)
+                    return -1;
+                else
+                    return 0;
+            }
+        };
+        
+        Collections.sort(list, cmp);
+        System.out.println("Sorted by last digit: " + list);
+        // Output: [11, 20, 43, 56, 99]
+        // Last digits: 1, 0, 3, 6, 9
+    }
+}
+```
+
+**Comparator Rules:**
+- Return `1` if first > second (a comes after b)
+- Return `-1` if first < second (a comes before b)
+- Return `0` if first == second (equal)
+
+---
+
+### 2️⃣ **Lambda Expression (Java 8+)**
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Arrays;
+
+public class LambdaComparatorDemo {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(Arrays.asList(43, 11, 56, 99, 20));
+        
+        // LAMBDA EXPRESSION - More concise
+        Comparator<Integer> cmp = (Integer a, Integer b) -> {
+            if (a % 10 > b % 10)
+                return 1;
+            else if (a % 10 < b % 10)
+                return -1;
+            else
+                return 0;
+        };
+        
+        Collections.sort(list, cmp);
+        System.out.println("Sorted by last digit: " + list);
+        // Output: [11, 20, 43, 56, 99]
+    }
+}
+```
+
+**Even More Concise:**
+
+```java
+// One-liner using compareTo
+Comparator<Integer> cmp = (a, b) -> Integer.compare(a % 10, b % 10);
+
+Collections.sort(list, cmp);
+System.out.println(list);
+```
+
+---
+
+### 3️⃣ **Reverse Order**
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Arrays;
+
+public class ReverseOrderDemo {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(Arrays.asList(43, 11, 56, 99, 20));
+        
+        // Descending order
+        Collections.sort(list, (a, b) -> b - a);
+        // Or
+        Collections.sort(list, Comparator.reverseOrder());
+        
+        System.out.println("Descending: " + list);
+        // Output: [99, 56, 43, 20, 11]
+    }
+}
+```
+
+---
+
+### 4️⃣ **Sorting Objects (Custom Classes)**
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+class Student {
+    String name;
+    int marks;
+    
+    Student(String name, int marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+    
+    @Override
+    public String toString() {
+        return name + "(" + marks + ")";
+    }
+}
+
+public class StudentSortingDemo {
+    public static void main(String[] args) {
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 95));
+        students.add(new Student("Bob", 87));
+        students.add(new Student("Charlie", 92));
+        
+        // Sort by marks (ascending)
+        Collections.sort(students, (s1, s2) -> s1.marks - s2.marks);
+        System.out.println("By marks (ascending): " + students);
+        // Output: [Bob(87), Charlie(92), Alice(95)]
+        
+        // Sort by marks (descending)
+        Collections.sort(students, (s1, s2) -> s2.marks - s1.marks);
+        System.out.println("By marks (descending): " + students);
+        // Output: [Alice(95), Charlie(92), Bob(87)]
+        
+        // Sort by name (alphabetical)
+        Collections.sort(students, (s1, s2) -> s1.name.compareTo(s2.name));
+        System.out.println("By name: " + students);
+        // Output: [Alice(95), Bob(87), Charlie(92)]
+    }
+}
+```
+
+---
+
+### 5️⃣ **Chained Comparators**
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+class Employee {
+    String department;
+    int salary;
+    
+    Employee(String department, int salary) {
+        this.department = department;
+        this.salary = salary;
+    }
+    
+    @Override
+    public String toString() {
+        return department + ":" + salary;
+    }
+}
+
+public class ChainedComparatorDemo {
+    public static void main(String[] args) {
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(new Employee("IT", 50000));
+        employees.add(new Employee("HR", 45000));
+        employees.add(new Employee("IT", 60000));
+        employees.add(new Employee("HR", 50000));
+        
+        // Sort by department first, then by salary
+        Collections.sort(employees, 
+            Comparator.comparing((Employee e) -> e.department)
+                      .thenComparingInt(e -> e.salary)
+        );
+        
+        System.out.println("Sorted: " + employees);
+        // Output: [HR:45000, HR:50000, IT:50000, IT:60000]
+    }
+}
+```
+
+---
+
+### 📊 Comparator Quick Reference
+
+```
+compare(a, b) Returns:
+  1   →  a comes after b (descending if a > b)
+  -1  →  a comes before b (ascending if a < b)
+  0   →  equal
+```
+
+**Common Patterns:**
+```java
+// Ascending integer
+(a, b) -> a - b;
+(a, b) -> Integer.compare(a, b);
+
+// Descending integer
+(a, b) -> b - a;
+(a, b) -> -Integer.compare(a, b);
+
+// Ascending string
+(s1, s2) -> s1.compareTo(s2);
+(s1, s2) -> String.CASE_INSENSITIVE_ORDER.compare(s1, s2);
+
+// Descending string
+(s1, s2) -> s2.compareTo(s1);
+```
+
+</details>
+
+---
+
+## ✅ Problems Covered - Days 1 & 2
 
 ### 📋 **Collections & Arrays**
 
@@ -763,122 +1527,244 @@ public class RemoveDuplicates {
 | 4 | Remove Duplicates (Brute Force) | 🟡 Medium | Nested Loops | ✅ |
 | 5 | Remove Duplicates (HashSet) | 🟡 Medium | Collections | ✅ |
 | 6 | ArrayList Iteration Methods | 🟢 Easy | Collections | ✅ |
+| 7 | Set Operations (HashSet, LinkedHashSet, TreeSet) | 🟡 Medium | Set Interface | ✅ |
+| 8 | LinkedList Operations | 🟡 Medium | Linked Structure | ✅ |
+
+### 📋 **Maps & Advanced Collections**
+
+| # | Problem | Difficulty | Concept | Status |
+|:-:|:--------|:----------:|:--------|:------:|
+| 9 | HashMap Key-Value Operations | 🟡 Medium | Map Interface | ✅ |
+| 10 | Elements Appearing > n/3 Times | 🟡 Medium | HashMap Frequency | ✅ |
+| 11 | Duplicate Detection with HashSet | 🟡 Medium | Set Operations | ✅ |
+
+### 📋 **Queues & Heaps**
+
+| # | Problem | Difficulty | Concept | Status |
+|:-:|:--------|:----------:|:--------|:------:|
+| 12 | ArrayDeque Operations | 🟡 Medium | Queue/Deque | ✅ |
+| 13 | Kth Largest Element | 🟡 Medium | PriorityQueue | ✅ |
+| 14 | Kth Smallest Element | 🟡 Medium | PriorityQueue | ✅ |
+
+### 📋 **Comparators & Sorting**
+
+| # | Problem | Difficulty | Concept | Status |
+|:-:|:--------|:----------:|:--------|:------:|
+| 15 | Custom Sorting (Last Digit) | 🟡 Medium | Comparator | ✅ |
+| 16 | Sort by Multiple Criteria | 🟡 Medium | Chained Comparators | ✅ |
+| 17 | Collections Utility Methods | 🟡 Medium | Collections Class | ✅ |
 
 ---
 
 ## 📅 What's Coming Next?
 
-### 🔜 Day 2: Collections Advanced & Array Algorithms
+### 🔜 Day 3: Algorithms & Advanced Problem Solving
 
 ```
 ✅ WILL COVER:
-├── 🗺️ Map Interface
-│   ├── HashMap - Key-value pairs
-│   ├── TreeMap - Sorted keys
-│   └── LinkedHashMap - Order preserved
+
+├── 🪟 Sliding Window Technique
+│   ├── Maximum sum subarray
+│   ├── Longest substring without repeating
+│   ├── Container with most water
+│   └── Minimum window substring
 │
-├── 📬 Queue Interface
-│   ├── PriorityQueue - Min/Max heap
-│   ├── Deque - Double-ended queue
-│   └── ArrayDeque - Efficient implementation
+├── ➕ Prefix Sum Algorithm
+│   ├── Range sum queries
+│   ├── Subarray sum equals K
+│   └── Product of array except self
 │
-├── 🛠️ Collections Utility Class
-│   ├── sort(), reverse(), shuffle()
-│   ├── min(), max()
-│   ├── binarySearch()
-│   └── frequency()
+├── ⬅️➡️ Two Pointer Approach
+│   ├── Two sum problem
+│   ├── Merge sorted arrays
+│   └── Remove nth node from end
 │
-└── 🔥 Array Problem-Solving Techniques
-    ├── 🪟 Sliding Window
-    │   ├── Maximum sum subarray
-    │   ├── Longest substring
-    │   └── Container with most water
-    │
-    └── ➕ Prefix Sum
-        ├── Range sum queries
-        ├── Subarray sum equals K
-        └── Product of array except self
+├── 🔍 Binary Search & Variations
+│   ├── Standard binary search
+│   ├── Search in rotated array
+│   ├── Find peak element
+│   └── Median of two sorted arrays
+│
+└── 📊 Sorting Algorithms Deep Dive
+    ├── Bubble Sort
+    ├── Selection Sort
+    ├── Insertion Sort
+    ├── Merge Sort
+    ├── Quick Sort
+    └── Heap Sort
 ```
 
 ---
 
 ## 📚 Quick Reference
 
-### 🎓 Key Concepts to Remember
+### 🎓 Day 1 Summary
 
 ```
-DAY 1 SUMMARY:
+ARRAYS:
+- Fixed size, indexed access O(1)
+- Use for: fixed-size collections
 
-1. ARRAYS:
-   - Fixed size, indexed access O(1)
-   - Use for: fixed-size collections
-   - Enhanced for loop: for(int x : arr)
+ARRAYLIST:
+- Dynamic size, indexed access O(1)
+- Methods: add(), get(), remove(), set()
 
-2. ARRAYLIST:
-   - Dynamic size, indexed access O(1)
-   - Common methods: add(), get(), remove(), set()
-   - Use for: flexible collections
+COLLECTIONS:
+- List: ordered with duplicates
+- Set: unordered, no duplicates
+- Queue: FIFO processing
+- Map: key-value pairs
 
-3. COLLECTIONS:
-   - List: ordered with duplicates
-   - Set: unordered, no duplicates
-   - Queue: FIFO processing
-   - Map: key-value pairs
+SETS:
+- HashSet: O(1), unordered
+- LinkedHashSet: O(1), insertion order
+- TreeSet: O(log n), sorted
 
-4. SETS:
-   - HashSet: fastest, unordered O(1)
-   - LinkedHashSet: insertion order O(1)
-   - TreeSet: sorted O(log n)
+LISTS:
+- ArrayList: random access O(1), add/remove O(n)
+- LinkedList: fast add/remove O(1) at ends
 
-5. LISTS:
-   - ArrayList: random access O(1), add/remove O(n)
-   - LinkedList: fast add/remove O(1) at ends
+DUPLICATE REMOVAL:
+- Brute Force: O(n²) time, O(1) space
+- HashSet: O(n) time, O(n) space (RECOMMENDED)
+```
 
-6. DUPLICATE REMOVAL:
-   - Brute Force: O(n²) time, O(1) space
-   - HashSet: O(n) time, O(n) space - RECOMMENDED
+### 🎓 Day 2 Summary
+
+```
+MAP INTERFACE:
+- HashMap: O(1), unordered key-value pairs
+- LinkedHashMap: O(1), insertion order
+- TreeMap: O(log n), sorted keys
+
+QUEUE INTERFACE:
+- ArrayDeque: O(1), double-ended, FIFO/LIFO
+- PriorityQueue: O(log n), priority-based
+
+COLLECTIONS UTILITY:
+- sort(), reverse(), shuffle()
+- min(), max(), frequency()
+- binarySearch(), fill(), copy()
+
+COMPARATORS:
+- Custom sorting logic
+- Lambda expressions for concise syntax
+- Chained comparators for multiple criteria
+
+ITERATOR:
+- Traverse collections sequentially
+- Methods: hasNext(), next(), remove()
 ```
 
 ---
 
-## 🔗 Collections Class Methods (Coming Day 2)
+## 🏆 Performance Cheat Sheet
+
+### Collections Time Complexity
+
+```
+                Access    Add    Remove   Contains
+ArrayList       O(1)     O(n)    O(n)     O(n)
+LinkedList      O(n)     O(1)    O(1)     O(n)
+HashSet         —        O(1)    O(1)     O(1)
+LinkedHashSet   —        O(1)    O(1)     O(1)
+TreeSet         —        O(log n) O(log n) O(log n)
+HashMap         —        O(1)    O(1)     O(1)
+LinkedHashMap   —        O(1)    O(1)     O(1)
+TreeMap         —        O(log n) O(log n) O(log n)
+ArrayDeque      O(1)     O(1)    O(1)     O(1)
+PriorityQueue   O(n)     O(log n) O(log n) O(n)
+```
+
+---
+
+## 💻 Import Statements
 
 ```java
+// Collections Framework
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
+import java.util.ArrayDeque;
+import java.util.PriorityQueue;
+import java.util.List;
+import java.util.Set;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Deque;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Arrays;
 
-// Will learn:
-Collections.sort(list);           // Sort list
-Collections.reverse(list);        // Reverse list
-Collections.shuffle(list);        // Randomize
-Collections.min(list);            // Minimum element
-Collections.max(list);            // Maximum element
-Collections.frequency(list, x);   // Count occurrences
-Collections.binarySearch(list, x); // Binary search
-Collections.fill(list, value);    // Fill with value
-Collections.copy(dest, src);      // Copy list
+// Or import all
+import java.util.*;
 ```
 
 ---
 
-## 💻 Code Structure Best Practices
+## 🎯 Day 1 & 2 Code Summary
 
 ```java
-// Good practice: Use appropriate collections
+// ========== COLLECTIONS OPERATIONS ==========
 
-// ✅ When you need index access and frequent lookup
-ArrayList<String> names = new ArrayList<>();
+// ARRAYLIST
+ArrayList<Integer> list = new ArrayList<>();
+list.add(10);
+list.add(20);
+list.add(1, 15);
+list.remove(1);
 
-// ✅ When you need unique elements only
-Set<Integer> uniqueNumbers = new HashSet<>();
+// HASHSET
+HashSet<Integer> set = new HashSet<>();
+set.add(1);
+set.remove(1);
 
-// ✅ When you need ordered unique elements
-Set<Integer> sortedUnique = new TreeSet<>();
+// HASHMAP
+HashMap<String, Integer> map = new HashMap<>();
+map.put("name", 25);
+map.get("name");
 
-// ✅ When you need key-value mapping
-Map<String, Integer> ageCounts = new HashMap<>();
+// ARRAYDEQUE (Queue)
+ArrayDeque<Integer> deque = new ArrayDeque<>();
+deque.offerFirst(1);
+deque.pollLast();
 
-// ✅ When you need queue behavior
-Queue<Integer> tasks = new LinkedList<>();
+// PRIORITYQUEUE
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+pq.offer(5);
+pq.poll();
+
+// ========== SORTING WITH COMPARATORS ==========
+
+List<Integer> list = new ArrayList<>(Arrays.asList(43, 11, 56, 99, 20));
+
+// Anonymous Inner Class
+Comparator<Integer> cmp = new Comparator<Integer>() {
+    @Override
+    public int compare(Integer a, Integer b) {
+        return a % 10 - b % 10;  // By last digit
+    }
+};
+
+// Lambda Expression
+Comparator<Integer> cmp2 = (a, b) -> a % 10 - b % 10;
+
+Collections.sort(list, cmp2);
+
+// ========== COLLECTIONS UTILITY ==========
+
+Collections.sort(list);          // Sort ascending
+Collections.reverse(list);       // Reverse
+Collections.shuffle(list);       // Randomize
+Collections.min(list);           // Min element
+Collections.max(list);           // Max element
+Collections.frequency(list, 5);  // Count 5s
+Collections.binarySearch(list, 5); // Search
 ```
 
 ---
@@ -913,40 +1799,71 @@ Queue<Integer> tasks = new LinkedList<>();
 ## 📊 Progress Tracking
 
 ```
-✅ Completed (Day 1):
+✅ Completed (Days 1-2):
   - Arrays basics and manipulation
   - ArrayList all operations
   - Sets (HashSet, LinkedHashSet, TreeSet)
   - Lists (ArrayList, LinkedList)
   - Duplicate removal (multiple approaches)
-
-🔜 Next (Day 2):
-  - Map interface (HashMap, TreeMap, LinkedHashMap)
-  - Queue interface
+  - Map interface (HashMap, LinkedHashMap, TreeMap)
+  - Queue interface (ArrayDeque, PriorityQueue)
   - Collections utility class
+  - Comparators & custom sorting
+  - Iterator & iteration methods
+  - Real-world problem solving
+
+🔜 Next (Day 3):
   - Sliding window technique
   - Prefix sum algorithm
+  - Two pointer approach
+  - Binary search & variations
+  - Sorting algorithms deep dive
 
-📈 Overall Progress: 1/10 days completed (10%)
+📈 Overall Progress: 2/10 days completed (20%)
 ```
 
 ---
 
-## 🏆 Performance Cheat Sheet
+## 🔗 Collections Class Methods Reference
 
-### Collections Time Complexity
+```java
+import java.util.Collections;
 
+// Sorting
+Collections.sort(list);                    // Sort ascending
+Collections.sort(list, comparator);        // Sort with comparator
+Collections.reverse(list);                 // Reverse
+Collections.shuffle(list);                 // Randomize
+
+// Searching
+Collections.binarySearch(list, value);     // Binary search (O(log n))
+
+// Min/Max
+Collections.min(list);                     // Minimum element
+Collections.max(list);                     // Maximum element
+Collections.min(list, comparator);         // Min with comparator
+
+// Frequency & Copying
+Collections.frequency(list, value);        // Count occurrences
+Collections.copy(dest, src);              // Copy list
+Collections.fill(list, value);            // Fill with value
+Collections.rotate(list, distance);       // Rotate
+
+// Unmodifiable views
+Collections.unmodifiableList(list);       // Read-only list
+Collections.unmodifiableSet(set);         // Read-only set
+Collections.unmodifiableMap(map);         // Read-only map
 ```
-                Access    Add    Remove   Contains
-ArrayList       O(1)     O(n)    O(n)     O(n)
-LinkedList      O(n)     O(1)    O(1)     O(n)
-HashSet         —        O(1)    O(1)     O(1)
-LinkedHashSet   —        O(1)    O(1)     O(1)
-TreeSet         —        O(log n) O(log n) O(log n)
-HashMap         —        O(1)    O(1)     O(1)
-TreeMap         —        O(log n) O(log n) O(log n)
-PriorityQueue   O(n)     O(log n) O(log n) O(n)
-```
+
+---
+
+## 🚀 Next Steps
+
+1. **Review** - Re-read Day 1 & Day 2 materials
+2. **Practice** - Solve all example problems multiple times
+3. **Experiment** - Create your own variations
+4. **Prepare** - Get ready for Day 3 (Algorithms)
+5. **Ask** - Clarify any doubts before moving forward
 
 ---
 
@@ -956,10 +1873,10 @@ PriorityQueue   O(n)     O(log n) O(log n) O(n)
 <tr>
 <td>
 
-### 📚 Documentation
+### 📚 Official Documentation
 - [Java Collections](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collections.html)
 - [ArrayList Docs](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html)
-- [Set Interface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html)
+- [Map Interface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html)
 
 </td>
 <td>
@@ -972,122 +1889,6 @@ PriorityQueue   O(n)     O(log n) O(log n) O(n)
 </td>
 </tr>
 </table>
-
----
-
-## 🤝 Questions & Solutions
-
-### Q1: When should I use ArrayList over Array?
-**A:** Use ArrayList when:
-- Size is not known beforehand
-- Frequent insertions/deletions needed
-- Need dynamic growth
-- Flexibility is more important than performance
-
-Use Array when:
-- Size is fixed and known
-- Maximum performance needed
-- Working with primitives extensively
-- Memory constraints
-
----
-
-### Q2: Why does duplicate removal with HashSet work faster?
-**A:** Because:
-- HashSet has O(1) average lookup
-- Checked each element once → O(n)
-- Brute force checks each element against all others → O(n²)
-- Trade-off: HashSet uses O(n) extra space
-
----
-
-### Q3: What's the difference between HashSet and TreeSet?
-**A:** 
-| Aspect | HashSet | TreeSet |
-|:-------|:-------:|:-------:|
-| Order | No | Yes (Sorted) |
-| Speed | Faster O(1) | Slower O(log n) |
-| Use | General purpose | Need sorted |
-
----
-
-## 📝 Important Code Snippets
-
-### Import Statements You'll Need
-
-```java
-// Collections Framework
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.TreeSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Collections;
-import java.util.Arrays;
-
-// Or import all
-import java.util.*;
-```
-
----
-
-## 🚀 Next Steps
-
-1. **Review** - Re-read Day 1 materials
-2. **Practice** - Solve ArrayList problems
-3. **Experiment** - Create your own examples
-4. **Prepare** - Get ready for Day 2 (Map, Queue)
-5. **Ask** - Clarify any doubts before moving forward
-
----
-
-## 🎯 Day 1 Code Summary
-
-```java
-// ========== ARRAYS ==========
-int[] arr = {0, 4, 0, 9};
-int j = 0;
-for (int i = 0; i < arr.length; i++) {
-    if (arr[i] != 0) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-        j++;
-    }
-}
-// Result: [4, 9, 0, 0]
-
-// ========== ARRAYLIST OPERATIONS ==========
-ArrayList<Integer> arrList = new ArrayList<>();
-arrList.add(2);
-arrList.add(1);
-arrList.add(3);
-arrList.add(4, 54);
-arrList.set(0, 5);
-arrList.remove(2);
-
-// ========== REMOVE DUPLICATES ==========
-ArrayList<Integer> arrList = new ArrayList<>();
-int[] arr = {1, 4, 1, 1, 1, 1, 1, 4, 3, 133, 345, 13, 13};
-for (int val: arr)
-    arrList.add(val);
-
-for (int i = 0; i < arrList.size(); i++) {
-    for (int j = i + 1; j < arrList.size(); j++) {
-        if(arrList.get(i).equals(arrList.get(j))){
-            arrList.remove(j);
-            j--;
-        }
-    }
-}
-System.out.println(arrList);
-// Output: [1, 4, 3, 133, 345, 13]
-```
-<br>
 
 ---
 
@@ -1116,7 +1917,6 @@ Code every day, solve problems regularly, and success will follow!
 <br>
 
 </div>
-
 
 ![Java](https://img.shields.io/badge/Built%20with-Java-blue?style=flat-square&logo=java)
 ![DSA](https://img.shields.io/badge/Learning-DSA-orange?style=flat-square)
