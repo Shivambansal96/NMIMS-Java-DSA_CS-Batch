@@ -85,12 +85,12 @@ Day 3 - Algorithms & Advanced Problem Solving:
 ⏳ Prefix Sum Algorithm
 ⏳ Two Pointer Approach
 ⏳ Binary Search & Variations
-⏳ Sorting Algorithms Deep Dive
+⏳ Sorting Algorithms Deep **Dive**
 ```
 
 ---
 
-## 🗺️ Learning Path
+## 🗺️ Learning Path (Day by Day)
 
 ```mermaid
 graph LR
@@ -1557,6 +1557,44 @@ compare(a, b) Returns:
 ---
 
 ## 📅 What's Coming Next?
+
+### 🔜 Day 3: Algorithms & Advanced Problem Solving
+
+```
+✅ WILL COVER:
+
+├── 🪟 Sliding Window Technique
+│   ├── Maximum sum subarray
+│   ├── Longest substring without repeating
+│   ├── Container with most water
+│   └── Minimum window substring
+│
+├── ➕ Prefix Sum Algorithm
+│   ├── Range sum queries
+│   ├── Subarray sum equals K
+│   └── Product of array except self
+│
+├── ⬅️➡️ Two Pointer Approach
+│   ├── Two sum problem
+│   ├── Merge sorted arrays
+│   └── Remove nth node from end
+│
+├── 🔍 Binary Search & Variations
+│   ├── Standard binary search
+│   ├── Search in rotated array
+│   ├── Find peak element
+│   └── Median of two sorted arrays
+│
+└── 📊 Sorting Algorithms Deep Dive
+    ├── Bubble Sort
+    ├── Selection Sort
+    ├── Insertion Sort
+    ├── Merge Sort
+    ├── Quick Sort
+    └── Heap Sort
+```
+
+---
 
 ### 🔜 Day 3: Algorithms & Advanced Problem Solving
 
