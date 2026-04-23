@@ -1,6 +1,7 @@
 ShivamRBansal@gmail.com
 shivam.bansal@university.edu
 shivam-1216-bansal@my-work.net
+Ankita-422452-mehta@my-work.net
 
-mishra.anubhav108@gmail.com
-bansal.shivam1216@gmail.com
+
+[a-zA-Z]+[.-]?[a-z0-9]+[-]?[a-z]+@[a-z]+[-]?[a-z]+(.com|.in|.edu|.net|.dev)
